@@ -22,31 +22,32 @@ class Car {
 }
 
 let carA = new Car("HB20", 4);
-console.log(carA);
-carA.speed();
-carA.speed();
-carA.speed();
-console.log("current speed", carA.currentSpeed());
+// console.log(carA);
+// carA.speed();
+// carA.speed();
+// carA.speed();
+// console.log("current speed", carA.currentSpeed());
 
 class DealerShip {
   private address: string = "";
-  private carLists: Array<string> = [""];
+  private carLists: Array<Car>;
 
-  constructor(address: string) {
+  constructor(address: string, carLists: Array<Car>) {
     this.address = address;
+    this.carLists = carLists;
   }
 
   supplierAddress(): string {
     return this.address;
   }
 
-  showCarLists(): Array<string> {
+  showCarLists(): Array<Car> {
     return this.carLists;
   }
 }
 
-let dealer = new DealerShip("Rua domingo");
-console.log(dealer);
+let dealer = new DealerShip("Rua domingo", []);
+// console.log(dealer);
 
 class Person {
   private name: string = "";
@@ -64,7 +65,7 @@ class Person {
   }
 
   sayFavoriteCar(): string {
-    return `My favorite car is ${this.favoriteCar}`;
+    return this.favoriteCar;
   }
 
   buyCar(): string {
@@ -76,4 +77,23 @@ class Person {
   }
 }
 
-//Criar carross
+//Criar carros
+let carB = new Car("veloster", 4);
+let carC = new Car("HB20", 4);
+let carD = new Car("Santa Cruz", 4);
+
+// lista de carros
+let carLists: Array<Car> = [carA, carB, carC, carD];
+
+let dealer2 = new DealerShip("Avenida Salgado Filho", carLists);
+
+//console.log(dealer2.showCarLists());
+
+// comprar o carro ----
+let realPerson = new Person("Rosineide", "HB20", "none");
+
+dealer2.showCarLists().map((car: Car) => {
+  if (car["model"] === realPerson.sayFavoriteCar()) {
+    console.log("comprar carro");
+  }
+});
