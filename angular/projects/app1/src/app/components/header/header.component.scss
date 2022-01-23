@@ -1,0 +1,7 @@
+.jumbotron {
+  background-color: black;
+  & .container {
+    color: #fff;
+    padding: 1rem 0;
+  }
+}
