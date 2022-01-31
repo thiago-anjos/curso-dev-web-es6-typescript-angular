@@ -9,9 +9,9 @@
   <hr />
 
   <div class="row">
-    <div class="col-sm-4" *ngFor="let item of ofertas; let i = index">
+    <div class="col-sm-4" *ngFor="let item of ofertas">
       <div class="card">
-        <img class="card-img-top" [src]="item.imagens[i].url" />
+        <img class="card-img-top" [src]="item.imagens[0].url" />
         <div class="card-block">
           <h4 class="card-title">{{ item.titulo }}</h4>
           <p class="card-text">

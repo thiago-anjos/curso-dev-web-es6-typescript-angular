@@ -16,12 +16,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     // this.ofertas = this.ofertaService.getOfertas();
     //consumindo a promessa
-    this.ofertaService
-      .getOfertas2()
-      .then((resolve) => (this.ofertas = resolve))
-      .catch((error) => {
-        this.ofertas = [];
-        console.error(error);
-      });
+    this.ofertaService.getOfertas().subscribe((response) => {
+      const destaqueFalse = response.filter((item) => item.destaque === false);
+      this.ofertas = destaqueFalse;
+    });
   }
 }

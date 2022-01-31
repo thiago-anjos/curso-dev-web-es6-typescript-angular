@@ -1,73 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { OfertasModel } from '../shared/models/ofertas-model';
-
+import { Observable, tap } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class OfertasService {
-  public ofertas: Array<OfertasModel> = [
-    {
-      id: 1,
-      categoria: 'restaurante',
-      titulo: 'Super Burger',
-      descricao_oferta: 'Rodízio de Mini-hambúrger com opção de entrada.',
-      anunciante: 'Original Burger',
-      valor: 29.9,
-      destaque: true,
-      imagens: [
-        { url: '/assets/ofertas/1/img1.jpg' },
-        { url: '/assets/ofertas/1/img2.jpg' },
-        { url: '/assets/ofertas/1/img3.jpg' },
-        { url: '/assets/ofertas/1/img4.jpg' },
-      ],
-    },
-    {
-      id: 2,
-      categoria: 'restaurante',
-      titulo: 'Cozinha Mexicana',
-      descricao_oferta: 'Almoço ou Jantar com Rodízio Mexicano delicioso.',
-      anunciante: 'Mexicana',
-      valor: 32.9,
-      destaque: true,
-      imagens: [
-        { url: '/assets/ofertas/2/img1.jpg' },
-        { url: '/assets/ofertas/2/img2.jpg' },
-        { url: '/assets/ofertas/2/img3.jpg' },
-        { url: '/assets/ofertas/2/img4.jpg' },
-      ],
-    },
-    {
-      id: 4,
-      categoria: 'diversao',
-      titulo: 'Estância das águas',
-      descricao_oferta:
-        'Diversão garantida com piscinas, trilhas e muito mais.',
-      anunciante: 'Estância das águas',
-      valor: 31.9,
-      destaque: true,
-      imagens: [
-        { url: '/assets/ofertas/3/img1.jpg' },
-        { url: '/assets/ofertas/3/img2.jpg' },
-        { url: '/assets/ofertas/3/img3.jpg' },
-        { url: '/assets/ofertas/3/img4.jpg' },
-        { url: '/assets/ofertas/3/img5.jpg' },
-        { url: '/assets/ofertas/3/img6.jpg' },
-      ],
-    },
-  ];
+  public ofertas: Array<OfertasModel> = [];
 
-  constructor() {}
+  constructor(public Http: HttpClient) {}
 
-  getOfertas(): Array<OfertasModel> {
-    return this.ofertas;
-  }
-
-  getOfertas2(): Promise<OfertasModel[]> {
-    return new Promise((resolve, reject) => {
-      const error = false;
-      error
-        ? reject({ error: 'server down', status: 500 })
-        : setTimeout(() => resolve(this.ofertas), 3000);
-    });
+  getOfertas(): Observable<Array<OfertasModel>> {
+    //efetuar uma requisição http e retornar uma promessa contendo um array de ofertas
+    return this.Http.get<OfertasModel[]>('http://localhost:3000/ofertas');
   }
 }
