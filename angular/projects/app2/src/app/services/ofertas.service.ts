@@ -14,4 +14,10 @@ export class OfertasService {
     //efetuar uma requisição http e retornar uma promessa contendo um array de ofertas
     return this.Http.get<OfertasModel[]>('http://localhost:3000/ofertas');
   }
+
+  getOfertaPorCategoria(categoria: string): Observable<Array<OfertasModel>> {
+    return this.Http.get<OfertasModel[]>(
+      `http://localhost:3000/ofertas?categoria=${categoria}`
+    );
+  }
 }
