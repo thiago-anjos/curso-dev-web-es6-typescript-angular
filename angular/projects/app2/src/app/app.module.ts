@@ -9,9 +9,10 @@ import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RestaurantesComponent } from './views/restaurantes/restaurantes.component';
 import { DiversaoComponent } from './views/diversao/diversao.component';
+import { OfertasComponent } from './views/ofertas/ofertas.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent, FooterComponent, RestaurantesComponent, DiversaoComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, FooterComponent, RestaurantesComponent, DiversaoComponent, OfertasComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
