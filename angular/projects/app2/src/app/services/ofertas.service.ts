@@ -8,16 +8,22 @@ import { Observable, tap } from 'rxjs';
 export class OfertasService {
   public ofertas: Array<OfertasModel> = [];
 
+  private baseUrl = 'http://localhost:3000/ofertas';
+
   constructor(public Http: HttpClient) {}
 
   getOfertas(): Observable<Array<OfertasModel>> {
     //efetuar uma requisição http e retornar uma promessa contendo um array de ofertas
-    return this.Http.get<OfertasModel[]>('http://localhost:3000/ofertas');
+    return this.Http.get<OfertasModel[]>(this.baseUrl);
   }
 
   getOfertaPorCategoria(categoria: string): Observable<Array<OfertasModel>> {
     return this.Http.get<OfertasModel[]>(
-      `http://localhost:3000/ofertas?categoria=${categoria}`
+      `${this.baseUrl}?categoria=${categoria}`
     );
+  }
+
+  getOfertaPorId(id: number): Observable<OfertasModel[]> {
+    return this.Http.get<OfertasModel[]>(`${this.baseUrl}?id=${id}`);
   }
 }
