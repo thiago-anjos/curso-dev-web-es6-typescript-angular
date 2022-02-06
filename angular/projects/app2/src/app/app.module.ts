@@ -9,11 +9,22 @@ import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RestaurantesComponent } from './views/restaurantes/restaurantes.component';
 import { DiversaoComponent } from './views/diversao/diversao.component';
-import { OfertasComponent } from './views/ofertas/ofertas.component';
+import { ComoUsarComponent } from './views/ofertas/components/como-usar/como-usar.component';
+import { OndeFicaComponent } from './views/ofertas/components/onde-fica/onde-fica.component';
+import { OfertasModule } from './views/ofertas/ofertas.module';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent, FooterComponent, RestaurantesComponent, DiversaoComponent, OfertasComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    FooterComponent,
+    RestaurantesComponent,
+    DiversaoComponent,
+    ComoUsarComponent,
+    OndeFicaComponent,
+  ],
+  imports: [BrowserModule, HttpClientModule, OfertasModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
