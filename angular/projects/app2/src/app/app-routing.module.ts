@@ -17,6 +17,12 @@ const routes: Routes = [
     path: 'diversao',
     component: DiversaoComponent,
   },
+  {
+    path: 'ofertas',
+    component: HomeComponent,
+    loadChildren: () =>
+      import('./views/ofertas/ofertas.module').then((m) => m.OfertasModule),
+  },
 ];
 
 @NgModule({

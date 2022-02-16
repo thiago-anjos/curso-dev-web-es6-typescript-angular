@@ -7,14 +7,6 @@ import { OndeFicaComponent } from './components/onde-fica/onde-fica.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: OfertasComponent,
-  },
-  {
-    path: 'oferta',
-    component: HomeComponent,
-  },
-  {
     path: 'oferta/:id',
     component: OfertasComponent,
     children: [

@@ -14,7 +14,7 @@ export class OfertasService {
 
   getOfertas(): Observable<Array<OfertasModel>> {
     //efetuar uma requisição http e retornar uma promessa contendo um array de ofertas
-    return this.Http.get<OfertasModel[]>(`{baseUrl}/ofertas`);
+    return this.Http.get<OfertasModel[]>(`${baseUrl}/ofertas`);
   }
 
   getOfertaPorCategoria(categoria: string): Observable<Array<OfertasModel>> {

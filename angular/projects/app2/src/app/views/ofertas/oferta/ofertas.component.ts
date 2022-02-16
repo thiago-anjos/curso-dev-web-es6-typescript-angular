@@ -27,5 +27,12 @@ export class OfertasComponent implements OnInit {
     this.ofertaService.getOfertaPorId(id).subscribe((oferta) => {
       this.ofertaSelecionada = oferta.shift();
     });
+
+    this.route.params.subscribe(
+      (parametro: any) =>
+        console.log('primeiro parametro subscribe', parametro),
+      (error: any) => console.log(error),
+      () => console.log('processamento foi classificado como concluído')
+    );
   }
 }
