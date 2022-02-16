@@ -30,7 +30,14 @@ export class OfertasService {
   getComoUsarOfertaPorId(id: number): Observable<OfertasComoUsar[]> {
     return this.Http.get<OfertasComoUsar[]>(`${baseUrl}/como-usar?id=${id}`);
   }
+
   getOndeFica(id: number): Observable<OfertasComoUsar[]> {
     return this.Http.get<OfertasComoUsar[]>(`${baseUrl}/onde-fica?id=${id}`);
+  }
+
+  pesquisaOfertas(termo: string): Observable<OfertasModel[]> {
+    return this.Http.get<OfertasModel[]>(
+      `${baseUrl}/ofertas?descricao_oferta_like=${termo}`
+    );
   }
 }
