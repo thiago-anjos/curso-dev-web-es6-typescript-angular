@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { debounceTime, Observable, Subject } from 'rxjs';
+import {
+  debounceTime,
+  Observable,
+  Subject,
+  of,
+  distinctUntilChanged,
+} from 'rxjs';
 import { OfertasService } from 'src/app/services/ofertas.service';
 import { OfertasModel } from 'src/app/shared/models/ofertas-model';
 import { switchMap } from 'rxjs';
@@ -17,7 +23,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.ofertas = this.subjectPesquisa.pipe(
       debounceTime(1000),
+      distinctUntilChanged(),
       switchMap((termo: string) => {
+        if (termo.trim() === '') return of<OfertasModel[]>([]);
         return this.ofertasService.pesquisaOfertas(termo);
       })
     );
