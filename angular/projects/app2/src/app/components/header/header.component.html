@@ -15,6 +15,11 @@
             #termoDaPesquisa
             (keyup)="pesquisa(termoDaPesquisa.value)"
           />
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let item of listaOfertas">
+              {{ item.anunciante }} - {{ item.descricao_oferta }}
+            </li>
+          </ul>
         </div>
         <div class="col-md-2">
           <a href="#"><img src="/assets/carrinho.png" /></a>

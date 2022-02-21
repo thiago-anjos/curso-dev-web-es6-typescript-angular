@@ -5,6 +5,7 @@ import {
   Subject,
   of,
   distinctUntilChanged,
+  catchError,
 } from 'rxjs';
 import { OfertasService } from 'src/app/services/ofertas.service';
 import { OfertasModel } from 'src/app/shared/models/ofertas-model';
@@ -17,6 +18,7 @@ import { switchMap } from 'rxjs';
 export class HeaderComponent implements OnInit {
   public ofertas!: Observable<OfertasModel[]>;
   private subjectPesquisa: Subject<string> = new Subject();
+  public listaOfertas!: OfertasModel[];
 
   constructor(private ofertasService: OfertasService) {}
 
@@ -29,10 +31,14 @@ export class HeaderComponent implements OnInit {
         return this.ofertasService.pesquisaOfertas(termo);
       })
     );
-
-    this.ofertas.subscribe((oferta: OfertasModel[]) =>
-      console.log('retorno 1 segundo depois', oferta)
-    );
+    catchError((err: any) => {
+      console.log('ERRO', err);
+      return of<OfertasModel[]>([]);
+    });
+    this.ofertas.subscribe((oferta: OfertasModel[]) => {
+      console.log(oferta);
+      this.listaOfertas = oferta;
+    });
   }
 
   public pesquisa(termoDaBusca: string): void {
