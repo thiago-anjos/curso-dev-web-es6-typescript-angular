@@ -15,6 +15,7 @@ import { DiversaoComponent } from './views/diversao/diversao.component';
 import { ComoUsarComponent } from './views/ofertas/components/como-usar/como-usar.component';
 import { OndeFicaComponent } from './views/ofertas/components/onde-fica/onde-fica.component';
 import { OfertasModule } from './views/ofertas/ofertas.module';
+import { DescricaResumidaPipe } from './pipes/descrica-resumida.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,8 @@ import { OfertasModule } from './views/ofertas/ofertas.module';
     DiversaoComponent,
     ComoUsarComponent,
     OndeFicaComponent,
+    DescricaResumidaPipe,
+    DescricaResumidaPipe,
   ],
   imports: [BrowserModule, HttpClientModule, OfertasModule, AppRoutingModule],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
