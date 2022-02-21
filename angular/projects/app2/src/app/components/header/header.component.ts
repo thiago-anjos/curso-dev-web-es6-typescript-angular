@@ -18,7 +18,6 @@ import { switchMap } from 'rxjs';
 export class HeaderComponent implements OnInit {
   public ofertas!: Observable<OfertasModel[]>;
   private subjectPesquisa: Subject<string> = new Subject();
-  public listaOfertas!: OfertasModel[];
 
   constructor(private ofertasService: OfertasService) {}
 
@@ -32,18 +31,14 @@ export class HeaderComponent implements OnInit {
       })
     );
     catchError((err: any) => {
-      console.log('ERRO', err);
+      // console.log('ERRO', err);
       return of<OfertasModel[]>([]);
-    });
-    this.ofertas.subscribe((oferta: OfertasModel[]) => {
-      console.log(oferta);
-      this.listaOfertas = oferta;
     });
   }
 
   public pesquisa(termoDaBusca: string): void {
     //para unir o termo da pesquisa e disparar depois de um tempo, parecido com o debounce
-    console.log('evento keyup acontecendo', termoDaBusca);
+    // console.log('evento keyup acontecendo', termoDaBusca);
     this.subjectPesquisa.next(termoDaBusca);
   }
 }

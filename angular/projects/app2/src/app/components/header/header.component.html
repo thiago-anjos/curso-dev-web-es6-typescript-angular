@@ -16,13 +16,9 @@
             (keyup)="pesquisa(termoDaPesquisa.value)"
           />
           <ul class="list-group">
-            <li class="list-group-item" *ngFor="let item of listaOfertas">
+            <li class="list-group-item" *ngFor="let item of ofertas | async">
               {{ item.anunciante }} -
-              {{
-                item.descricao_oferta
-                  | descricaResumida: undefined:6
-                  | uppercase
-              }}
+              {{ item.descricao_oferta | descricaResumida: undefined:6 }}
             </li>
           </ul>
         </div>
