@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   public ofertas!: Observable<OfertasModel[]>;
   private subjectPesquisa: Subject<string> = new Subject();
   public listaOfertas!: OfertasModel[];
+  public dateTest: any = new Date();
 
   constructor(private ofertasService: OfertasService) {}
 
