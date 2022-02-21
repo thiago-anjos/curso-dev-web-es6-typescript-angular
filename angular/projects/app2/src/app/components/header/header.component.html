@@ -18,7 +18,11 @@
           <ul class="list-group">
             <li class="list-group-item" *ngFor="let item of listaOfertas">
               {{ item.anunciante }} -
-              {{ item.descricao_oferta | descricaResumida }}
+              {{
+                item.descricao_oferta
+                  | descricaResumida: undefined:6
+                  | uppercase
+              }}
             </li>
           </ul>
         </div>
