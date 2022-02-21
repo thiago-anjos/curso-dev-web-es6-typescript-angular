@@ -41,4 +41,8 @@ export class HeaderComponent implements OnInit {
     // console.log('evento keyup acontecendo', termoDaBusca);
     this.subjectPesquisa.next(termoDaBusca);
   }
+
+  public limpaPesquisa(): void {
+    this.subjectPesquisa.next('');
+  }
 }
