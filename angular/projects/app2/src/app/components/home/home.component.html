@@ -17,7 +17,7 @@
           <p class="card-text">
             {{ item.descricao_oferta }}
           </p>
-          <p class="preco">R$ {{ item.valor }}</p>
+          <p class="preco">{{ item.valor | currency: "BRL" }}</p>
           <a [routerLink]="['/oferta', item.id]" class="btn btn-outline-primary"
             >Ver oferta</a
           >
