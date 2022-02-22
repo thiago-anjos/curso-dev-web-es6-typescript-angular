@@ -17,11 +17,12 @@ export class ComoUsarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const params = this.route.parent?.snapshot.params['id'];
-    this.ofertasService
-      .getComoUsarOfertaPorId(params)
-      .subscribe((oferta: OfertasComoUsar[]) => {
-        this.comoUsar = oferta[0].descricao;
-      });
+    const params = this.route.parent?.params.subscribe((item: any) => {
+      this.ofertasService
+        .getComoUsarOfertaPorId(item.id)
+        .subscribe((oferta: OfertasComoUsar[]) => {
+          this.comoUsar = oferta[0].descricao;
+        });
+    });
   }
 }

@@ -17,22 +17,12 @@ export class OfertasComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.params['id'];
-    // console.log(id);
-
-    // const idSubscribe = this.route.params.subscribe((params: any) => {
-    //   console.log('paramns', params);
-    // });
-
-    this.ofertaService.getOfertaPorId(id).subscribe((oferta) => {
-      this.ofertaSelecionada = oferta.shift();
+    this.route.params.subscribe((parametros: any) => {
+      this.ofertaService.getOfertaPorId(parametros.id).subscribe((item) => {
+        console.log(item);
+        console.log(item.shift());
+        this.ofertaSelecionada = item.shift();
+      });
     });
-
-    this.route.params.subscribe(
-      (parametro: any) =>
-        console.log('primeiro parametro subscribe', parametro),
-      (error: any) => console.log(error),
-      () => console.log('processamento foi classificado como concluído')
-    );
   }
 }
