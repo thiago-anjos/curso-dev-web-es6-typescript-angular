@@ -17,6 +17,7 @@ import { OndeFicaComponent } from './views/ofertas/components/onde-fica/onde-fic
 import { OfertasModule } from './views/ofertas/ofertas.module';
 import { DescricaResumidaPipe } from './pipes/descrica-resumida.pipe';
 import { OrdemCompraComponent } from './components/ordem-compra/ordem-compra.component';
+import { OrdemCompraSucessoComponent } from './components/ordem-compra-sucesso/ordem-compra-sucesso.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { OrdemCompraComponent } from './components/ordem-compra/ordem-compra.com
     DescricaResumidaPipe,
     DescricaResumidaPipe,
     OrdemCompraComponent,
+    OrdemCompraSucessoComponent,
   ],
   imports: [BrowserModule, HttpClientModule, OfertasModule, AppRoutingModule],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],

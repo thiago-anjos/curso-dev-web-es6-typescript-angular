@@ -8,6 +8,8 @@ import { Pedido } from 'src/app/shared/models/pedido-compra';
   styleUrls: ['./ordem-compra.component.scss'],
 })
 export class OrdemCompraComponent implements OnInit {
+  public idPedidoCompra: number = -1;
+
   public endereco: string = '';
   public numero: string = '';
   public complemento: string = '';
@@ -31,7 +33,7 @@ export class OrdemCompraComponent implements OnInit {
   public formEstado: boolean = true;
 
   // instancia de um novo pedido
-  public pedido: Pedido = new Pedido('', '', '', '');
+  public pedido: Pedido = new Pedido('', '', '', '', '');
 
   constructor(public ordemCompraService: OrdemCompraService) {}
 
@@ -87,6 +89,8 @@ export class OrdemCompraComponent implements OnInit {
     this.pedido.numero = this.numero;
     this.pedido.complemento = this.complemento;
     this.pedido.formaPagamento = this.formaPagamento;
-    this.ordemCompraService.efetivarCompra(this.pedido);
+    this.ordemCompraService
+      .efetivarCompra(this.pedido)
+      .subscribe((item: Pedido) => (this.idPedidoCompra = item.id));
   }
 }
