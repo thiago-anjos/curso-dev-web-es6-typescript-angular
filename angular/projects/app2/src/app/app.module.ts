@@ -18,7 +18,7 @@ import { OfertasModule } from './views/ofertas/ofertas.module';
 import { DescricaResumidaPipe } from './pipes/descrica-resumida.pipe';
 import { OrdemCompraComponent } from './components/ordem-compra/ordem-compra.component';
 import { OrdemCompraSucessoComponent } from './components/ordem-compra-sucesso/ordem-compra-sucesso.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     OfertasModule,
     AppRoutingModule,
-    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent],
