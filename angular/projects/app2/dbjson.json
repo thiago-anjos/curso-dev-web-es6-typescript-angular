@@ -9,10 +9,18 @@
       "valor": 29.9,
       "destaque": true,
       "imagens": [
-        { "url": "/assets/ofertas/1/img1.jpg" },
-        { "url": "/assets/ofertas/1/img2.jpg" },
-        { "url": "/assets/ofertas/1/img3.jpg" },
-        { "url": "/assets/ofertas/1/img4.jpg" }
+        {
+          "url": "/assets/ofertas/1/img1.jpg"
+        },
+        {
+          "url": "/assets/ofertas/1/img2.jpg"
+        },
+        {
+          "url": "/assets/ofertas/1/img3.jpg"
+        },
+        {
+          "url": "/assets/ofertas/1/img4.jpg"
+        }
       ]
     },
     {
@@ -24,10 +32,18 @@
       "valor": 32.9,
       "destaque": true,
       "imagens": [
-        { "url": "/assets/ofertas/2/img1.jpg" },
-        { "url": "/assets/ofertas/2/img2.jpg" },
-        { "url": "/assets/ofertas/2/img3.jpg" },
-        { "url": "/assets/ofertas/2/img4.jpg" }
+        {
+          "url": "/assets/ofertas/2/img1.jpg"
+        },
+        {
+          "url": "/assets/ofertas/2/img2.jpg"
+        },
+        {
+          "url": "/assets/ofertas/2/img3.jpg"
+        },
+        {
+          "url": "/assets/ofertas/2/img4.jpg"
+        }
       ]
     },
     {
@@ -39,10 +55,18 @@
       "valor": 21.9,
       "destaque": false,
       "imagens": [
-        { "url": "/assets/ofertas/3/img1.jpg" },
-        { "url": "/assets/ofertas/3/img2.jpg" },
-        { "url": "/assets/ofertas/3/img3.jpg" },
-        { "url": "/assets/ofertas/3/img4.jpg" }
+        {
+          "url": "/assets/ofertas/3/img1.jpg"
+        },
+        {
+          "url": "/assets/ofertas/3/img2.jpg"
+        },
+        {
+          "url": "/assets/ofertas/3/img3.jpg"
+        },
+        {
+          "url": "/assets/ofertas/3/img4.jpg"
+        }
       ]
     },
     {
@@ -54,12 +78,24 @@
       "valor": 31.9,
       "destaque": true,
       "imagens": [
-        { "url": "/assets/ofertas/4/img1.jpg" },
-        { "url": "/assets/ofertas/4/img2.jpg" },
-        { "url": "/assets/ofertas/4/img3.jpg" },
-        { "url": "/assets/ofertas/4/img4.jpg" },
-        { "url": "/assets/ofertas/4/img5.jpg" },
-        { "url": "/assets/ofertas/4/img6.jpg" }
+        {
+          "url": "/assets/ofertas/4/img1.jpg"
+        },
+        {
+          "url": "/assets/ofertas/4/img2.jpg"
+        },
+        {
+          "url": "/assets/ofertas/4/img3.jpg"
+        },
+        {
+          "url": "/assets/ofertas/4/img4.jpg"
+        },
+        {
+          "url": "/assets/ofertas/4/img5.jpg"
+        },
+        {
+          "url": "/assets/ofertas/4/img6.jpg"
+        }
       ]
     },
     {
@@ -71,8 +107,12 @@
       "valor": 54.9,
       "destaque": false,
       "imagens": [
-        { "url": "/assets/ofertas/5/img1.jpg" },
-        { "url": "/assets/ofertas/5/img2.jpg" }
+        {
+          "url": "/assets/ofertas/5/img1.jpg"
+        },
+        {
+          "url": "/assets/ofertas/5/img2.jpg"
+        }
       ]
     },
     {
@@ -84,8 +124,12 @@
       "valor": 89.9,
       "destaque": false,
       "imagens": [
-        { "url": "/assets/ofertas/6/img1.jpg" },
-        { "url": "/assets/ofertas/6/img2.jpg" }
+        {
+          "url": "/assets/ofertas/6/img1.jpg"
+        },
+        {
+          "url": "/assets/ofertas/6/img2.jpg"
+        }
       ]
     }
   ],
@@ -139,6 +183,253 @@
     {
       "id": 6,
       "descricao": "Estrada Maria das Graças, 12, Salvador - BA "
+    }
+  ],
+  "pedidos": [
+    {
+      "endereco": "rua dois",
+      "numero": "4545",
+      "complemento": "teste",
+      "formaPagamento": "dinheiro",
+      "id": 1
+    },
+    {
+      "endereco": "rua dois",
+      "numero": "4545",
+      "complemento": "teste",
+      "formaPagamento": "dinheiro",
+      "id": 2
+    },
+    {
+      "endereco": "rua dois",
+      "numero": "4545",
+      "complemento": "teste",
+      "formaPagamento": "dinheiro",
+      "id": 3
+    },
+    {
+      "endereco": "aaaaa",
+      "numero": "aaaa",
+      "complemento": "aaaaa",
+      "formaPagamento": "dinheiro",
+      "id": 4
+    },
+    {
+      "endereco": "aaaaa",
+      "numero": "aaaa",
+      "complemento": "aaaaa",
+      "formaPagamento": "dinheiro",
+      "id": 5
+    },
+    {
+      "endereco": "aaaaa",
+      "numero": "aaa",
+      "complemento": "aaaaa",
+      "formaPagamento": "dinheiro",
+      "id": 6
+    },
+    {
+      "endereco": "aaaaaa",
+      "id": -1,
+      "numero": "aaa",
+      "complemento": "aaa",
+      "formaPagamento": "dinheiro"
+    },
+    {
+      "endereco": "aaaaa",
+      "id": 7,
+      "numero": "aaaa",
+      "complemento": "aaaaa",
+      "formaPagamento": "dinheiro"
+    },
+    {
+      "endereco": "aaaaa",
+      "id": 8,
+      "numero": "aaaa",
+      "complemento": "aaaa",
+      "formaPagamento": "dinheiro"
+    },
+    {
+      "endereco": "aaaa",
+      "id": 9,
+      "numero": "aaaaa",
+      "complemento": "aaaa",
+      "formaPagamento": "dinheiro"
+    },
+    {
+      "endereco": "sdsd",
+      "id": 10,
+      "numero": "ddss",
+      "complemento": "sddd",
+      "formaPagamento": "dinheiro"
+    },
+    {
+      "complemento": "",
+      "endereco": "",
+      "formaPagamento": "",
+      "numero": "",
+      "id": 11
+    },
+    {
+      "complemento": "",
+      "endereco": "",
+      "formaPagamento": "",
+      "numero": "",
+      "id": 12
+    },
+    {
+      "complemento": "",
+      "endereco": "",
+      "formaPagamento": "",
+      "numero": "",
+      "id": 13
+    },
+    {
+      "complemento": "asas",
+      "endereco": "aaaaa",
+      "formaPagamento": "dinheiro",
+      "numero": "asss",
+      "id": 14
+    },
+    {
+      "complemento": "asas",
+      "endereco": "aaaaa",
+      "formaPagamento": "dinheiro",
+      "numero": "asss",
+      "id": 15
+    },
+    {
+      "complemento": "BBBBBBBBB",
+      "endereco": "AAAAAAAAAAA",
+      "formaPagamento": "debito",
+      "numero": "111111111111",
+      "id": 16
+    },
+    {
+      "complemento": "BBBBBBBBB",
+      "endereco": "AAAAAAAAAAA",
+      "formaPagamento": "dinheiro",
+      "numero": "111111111111",
+      "id": 17
+    },
+    {
+      "complemento": "BBBBBBBBB",
+      "endereco": "AAAAAAAAAAA",
+      "formaPagamento": "debito",
+      "numero": "111111111111",
+      "id": 18
+    },
+    {
+      "complemento": "",
+      "endereco": "",
+      "formaPagamento": "",
+      "numero": "",
+      "id": 19
+    },
+    {
+      "complemento": "aaaaa",
+      "endereco": "aaaaaaaa",
+      "formaPagamento": "dinheiro",
+      "numero": "aaaa",
+      "id": 20
+    },
+    {
+      "complemento": "aaaaa",
+      "endereco": "aaaaaaaa",
+      "formaPagamento": "dinheiro",
+      "numero": "aaaa",
+      "id": 21
+    },
+    {
+      "complemento": "aaaaa",
+      "endereco": "aaaaaaaa",
+      "formaPagamento": "dinheiro",
+      "numero": "aaaa",
+      "id": 22
+    },
+    {
+      "complemento": "aaaaa",
+      "endereco": "aaaaaaaa",
+      "formaPagamento": "dinheiro",
+      "numero": "aaaa",
+      "id": 23
+    },
+    {
+      "complemento": "eqweqwe",
+      "endereco": "eqweqwe",
+      "formaPagamento": "",
+      "numero": "qweqweqw",
+      "id": 24
+    },
+    {
+      "complemento": "eqweqwe",
+      "endereco": "eqweqwe",
+      "formaPagamento": "dinheiro",
+      "numero": "qweqweqw",
+      "id": 25
+    },
+    {
+      "complemento": "ewrewr",
+      "endereco": "werewr",
+      "formaPagamento": "dinheiro",
+      "numero": "rwerwer",
+      "id": 26
+    },
+    {
+      "complemento": "fdsfsdf",
+      "endereco": "fsdfds",
+      "formaPagamento": "dinheiro",
+      "numero": "fdsfdsf",
+      "id": 27
+    },
+    {
+      "complemento": "fsdfdsf",
+      "endereco": "fdsfdsf",
+      "formaPagamento": "dinheiro",
+      "numero": "dsfdsfds",
+      "id": 28
+    },
+    {
+      "complemento": "werewr",
+      "endereco": "wfeewrew",
+      "formaPagamento": "dinheiro",
+      "numero": "rewrewr",
+      "id": 29
+    },
+    {
+      "complemento": "dsfsdf",
+      "endereco": "fdsfdsf",
+      "formaPagamento": "dinheiro",
+      "numero": "dsfdsfsdf",
+      "id": 30
+    },
+    {
+      "complemento": "dsff",
+      "endereco": "sdf",
+      "formaPagamento": "dinheiro",
+      "numero": "dsfdsf",
+      "id": 31
+    },
+    {
+      "complemento": "fsdfsd",
+      "endereco": "fdsfds",
+      "formaPagamento": "dinheiro",
+      "numero": "fsdfdsf",
+      "id": 32
+    },
+    {
+      "complemento": "dsfsdf",
+      "endereco": "fsdfdsfsdf",
+      "formaPagamento": "debito",
+      "numero": "dsfdsf",
+      "id": 33
+    },
+    {
+      "complemento": "fdsfsdfds",
+      "endereco": "fsdfsdfsd",
+      "formaPagamento": "dinheiro",
+      "numero": "fdsfdsfsd",
+      "id": 34
     }
   ]
 }

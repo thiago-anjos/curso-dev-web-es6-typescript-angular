@@ -18,6 +18,7 @@ import { OfertasModule } from './views/ofertas/ofertas.module';
 import { DescricaResumidaPipe } from './pipes/descrica-resumida.pipe';
 import { OrdemCompraComponent } from './components/ordem-compra/ordem-compra.component';
 import { OrdemCompraSucessoComponent } from './components/ordem-compra-sucesso/ordem-compra-sucesso.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,13 @@ import { OrdemCompraSucessoComponent } from './components/ordem-compra-sucesso/o
     OrdemCompraComponent,
     OrdemCompraSucessoComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, OfertasModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    OfertasModule,
+    AppRoutingModule,
+    FormsModule,
+  ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent],
 })
