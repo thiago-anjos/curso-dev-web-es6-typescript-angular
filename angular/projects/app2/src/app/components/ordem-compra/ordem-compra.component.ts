@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { OrdemCompraService } from 'src/app/services/ordem-compra.service';
+import { Pedido } from 'src/app/shared/models/pedido-compra';
 
 @Component({
   selector: 'app-ordem-compra',
@@ -9,6 +10,8 @@ import { OrdemCompraService } from 'src/app/services/ordem-compra.service';
   providers: [OrdemCompraService],
 })
 export class OrdemCompraComponent implements OnInit {
+  public idPedidoCompra: number = -1;
+
   public form: FormGroup = new FormGroup({
     endereco: new FormControl(null, [
       Validators.required,
@@ -25,11 +28,20 @@ export class OrdemCompraComponent implements OnInit {
   ngOnInit() {}
 
   public confirmarCompra(): void {
-    if (!this.form.valid) {
-      this.form.get('endereco')?.markAsTouched();
-      this.form.get('numero')?.markAsTouched();
-      this.form.get('complemento')?.markAsTouched();
-      this.form.get('formaPagamento')?.markAsTouched();
+    if (this.form.valid) {
+      console.log('olá');
+      let pedido: Pedido = new Pedido(
+        this.form.value.endereco,
+        this.form.value.numero,
+        this.form.value.complemento,
+        this.form.value.formaPagamento
+      );
+      this.ordemCompraService
+        .efetivarCompra(pedido)
+        .subscribe((pedido: Pedido) => {
+          this.idPedidoCompra = pedido.id;
+          console.log(this.idPedidoCompra);
+        });
     }
   }
 }
