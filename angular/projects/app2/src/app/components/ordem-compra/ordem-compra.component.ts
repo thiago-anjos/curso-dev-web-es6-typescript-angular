@@ -25,11 +25,11 @@ export class OrdemCompraComponent implements OnInit {
   ngOnInit() {}
 
   public confirmarCompra(): void {
-    // if (!this.form.valid) {
-    //   this.form.get('endereco')?.markAsTouched();
-    //   this.form.get('numero')?.markAsTouched();
-    //   this.form.get('complemento')?.markAsTouched();
-    //   this.form.get('formaPagamento')?.markAsTouched();
-    // }
+    if (!this.form.valid) {
+      this.form.get('endereco')?.markAsTouched();
+      this.form.get('numero')?.markAsTouched();
+      this.form.get('complemento')?.markAsTouched();
+      this.form.get('formaPagamento')?.markAsTouched();
+    }
   }
 }
