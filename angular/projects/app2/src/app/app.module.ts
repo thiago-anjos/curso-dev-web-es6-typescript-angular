@@ -19,6 +19,7 @@ import { DescricaResumidaPipe } from './pipes/descrica-resumida.pipe';
 import { OrdemCompraComponent } from './components/ordem-compra/ordem-compra.component';
 import { OrdemCompraSucessoComponent } from './components/ordem-compra-sucesso/ordem-compra-sucesso.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CarrinhoService } from './services/carrinho.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule,
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
+  providers: [CarrinhoService, { provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
