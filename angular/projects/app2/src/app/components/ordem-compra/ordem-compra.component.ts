@@ -38,14 +38,14 @@ export class OrdemCompraComponent implements OnInit {
 
   public CalculoPedido(): void {
     if (this.itenscarrinho.length === 0) return;
-    let valores = this.itenscarrinho.map(
-      (item) => item.valor * item.quantidade
-    );
-    let sum = valores.reduce(function (previous, current) {
-      return previous + current;
+    let total = 0;
+
+    this.itenscarrinho.map((item: itemCarrinho) => {
+      return (total += total + item.valor * item.quantidade);
     });
-    if (sum > 0) {
-      this.totalPedido = sum;
+
+    if (total > 0) {
+      this.totalPedido = total;
     }
   }
 
