@@ -65,4 +65,14 @@ export class OrdemCompraComponent implements OnInit {
         });
     }
   }
+
+  public aumentarQuantidade(item: itemCarrinho): void {
+    this.carrinhoService.aumentarQuantidade(item);
+    this.CalculoPedido();
+  }
+
+  public diminuirQuantidade(item: itemCarrinho): void {
+    this.carrinhoService.diminuirQuantidade(item);
+    this.CalculoPedido();
+  }
 }

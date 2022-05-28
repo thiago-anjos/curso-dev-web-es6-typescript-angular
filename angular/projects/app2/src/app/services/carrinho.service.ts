@@ -11,7 +11,6 @@ export class CarrinhoService {
   public itens: itemCarrinho[] = [];
 
   public exibirItem(): itemCarrinho[] {
-    console.log('carrinho service', this.itens);
     return this.itens;
   }
 
@@ -43,5 +42,28 @@ export class CarrinhoService {
     }
 
     this.exibirItem();
+  }
+
+  public aumentarQuantidade(item: itemCarrinho) {
+    this.itens.find((itemStore: itemCarrinho) => {
+      if (itemStore.id === item.id) {
+        itemStore.quantidade += 1;
+      }
+    });
+  }
+
+  public diminuirQuantidade(item: itemCarrinho) {
+    this.itens.find((itemStore: itemCarrinho) => {
+      if (itemStore.id === item.id) {
+        if (itemStore.quantidade > 0) {
+          itemStore.quantidade -= 1;
+        }
+        if (itemStore.quantidade === 0) {
+          this.itens = this.itens.filter(
+            (itemS: itemCarrinho) => itemS.id !== item.id
+          );
+        }
+      }
+    });
   }
 }
