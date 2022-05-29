@@ -1,140 +1,147 @@
 <div class="container">
-  <div class="ordem-compra" *ngIf="this.idPedidoCompra === -1">
-    <form novalidate [formGroup]="form" (ngSubmit)="confirmarCompra()">
-      <h5>Sua Compra</h5>
-      <hr />
+  <div *ngIf="itenscarrinho.length === 0; else elseBlock">
+    <h1>Não perca tempo, vá as compras.</h1>
+  </div>
 
-      <div
-        class="form-row"
-        style="
-          background: #fafafa;
-          padding: 20px;
-          border-bottom: solid 1px #f0f0f0;
-        "
-        *ngFor="let item of itenscarrinho"
-      >
-        <div class="form-group col-sm-1">
-          <img [src]="item.img.url" class="img-fluid" />
-        </div>
-        <div class="form-group col-sm-6">
-          {{ item.titulo }}
-          <br />
-          {{ item.descricao_oferta }}
-        </div>
+  <ng-template #elseBlock>
+    <div class="ordem-compra" *ngIf="this.idPedidoCompra === -1">
+      <form novalidate [formGroup]="form" (ngSubmit)="confirmarCompra()">
+        <h5>Sua Compra</h5>
+        <hr />
 
-        <div>
-          <div class="row">
-            <div class="col">
-              <button
-                type="button"
-                class="btn btn-link"
-                (click)="diminuirQuantidade(item)"
-              >
-                -
-              </button>
-              {{ item.quantidade }}
-              <button
-                type="button"
-                class="btn btn-link"
-                (click)="aumentarQuantidade(item)"
-              >
-                +
-              </button>
+        <div
+          class="form-row"
+          style="
+            background: #fafafa;
+            padding: 20px;
+            border-bottom: solid 1px #f0f0f0;
+          "
+          *ngFor="let item of itenscarrinho"
+        >
+          <div class="form-group col-sm-1">
+            <img [src]="item.img.url" class="img-fluid" />
+          </div>
+          <div class="form-group col-sm-6">
+            {{ item.titulo }}
+            <br />
+            {{ item.descricao_oferta }}
+          </div>
+
+          <div>
+            <div class="row">
+              <div class="col">
+                <button
+                  type="button"
+                  class="btn btn-link"
+                  (click)="diminuirQuantidade(item)"
+                >
+                  -
+                </button>
+                {{ item.quantidade }}
+                <button
+                  type="button"
+                  class="btn btn-link"
+                  (click)="aumentarQuantidade(item)"
+                >
+                  +
+                </button>
+              </div>
             </div>
+          </div>
+
+          <div class="form-group col-sm-3 d-flex justify-content-end">
+            {{ item.quantidade * item.valor | currency: "BRL":true }}
           </div>
         </div>
 
-        <div class="form-group col-sm-3 d-flex justify-content-end">
-          {{ item.quantidade * item.valor | currency: "BRL":true }}
+        <div class="form-row">
+          <div class="form-group col d-flex justify-content-end">
+            <h4>Total do pedido: {{ totalPedido | currency: "BRL":true }}</h4>
+          </div>
         </div>
-      </div>
+        <br />
 
-      <div class="form-row">
-        <div class="form-group col d-flex justify-content-end">
-          <h4>Total do pedido: {{ totalPedido | currency: "BRL":true }}</h4>
+        <h5>Dados de entrega</h5>
+        <hr />
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Endereço"
+              autocomplete="off"
+              formControlName="endereco"
+            />
+            <small
+              class="form-text text-danger"
+              *ngIf="
+                form.get('endereco')?.invalid && form.get('endereco')?.touched
+              "
+              >Campo obrigatório</small
+            >
+          </div>
+
+          <div class="form-group col-md-2">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Número"
+              autocomplete="off"
+              formControlName="numero"
+            />
+            <small
+              class="form-text text-danger"
+              *ngIf="form.get('numero')?.invalid && form.get('numero')?.touched"
+              >Número obrigatório</small
+            >
+          </div>
+
+          <div class="form-group col-md-4">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Complemento"
+              autocomplete="off"
+              formControlName="complemento"
+            />
+          </div>
         </div>
-      </div>
-      <br />
+        <br />
 
-      <h5>Dados de entrega</h5>
-      <hr />
+        <h5>Dados de pagamento</h5>
+        <hr />
 
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Endereço"
-            autocomplete="off"
-            formControlName="endereco"
-          />
-          <small
-            class="form-text text-danger"
-            *ngIf="
-              form.get('endereco')?.invalid && form.get('endereco')?.touched
-            "
-            >Campo obrigatório</small
-          >
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <select class="form-control" formControlName="formaPagamento">
+              <option value="">Selecione uma opção</option>
+              <option value="dinheiro">Dinheiro</option>
+              <option value="debito">Débito</option>
+            </select>
+            <small
+              class="form-text text-danger"
+              *ngIf="
+                form.get('formaPagamento')?.invalid &&
+                form.get('formaPagamento')?.touched
+              "
+              >Forma de pagamento obrigatória</small
+            >
+          </div>
         </div>
 
-        <div class="form-group col-md-2">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Número"
-            autocomplete="off"
-            formControlName="numero"
-          />
-          <small
-            class="form-text text-danger"
-            *ngIf="form.get('numero')?.invalid && form.get('numero')?.touched"
-            >Número obrigatório</small
-          >
-        </div>
+        <hr />
+        <button
+          type="submit"
+          class="btn btn-primary btn-lg"
+          [disabled]="!form.valid"
+        >
+          Cofirmar compra
+        </button>
+      </form>
+    </div>
+  </ng-template>
 
-        <div class="form-group col-md-4">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Complemento"
-            autocomplete="off"
-            formControlName="complemento"
-          />
-        </div>
-      </div>
-      <br />
-
-      <h5>Dados de pagamento</h5>
-      <hr />
-
-      <div class="form-row">
-        <div class="form-group col-md-3">
-          <select class="form-control" formControlName="formaPagamento">
-            <option value="">Selecione uma opção</option>
-            <option value="dinheiro">Dinheiro</option>
-            <option value="debito">Débito</option>
-          </select>
-          <small
-            class="form-text text-danger"
-            *ngIf="
-              form.get('formaPagamento')?.invalid &&
-              form.get('formaPagamento')?.touched
-            "
-            >Forma de pagamento obrigatória</small
-          >
-        </div>
-      </div>
-
-      <hr />
-      <button
-        type="submit"
-        class="btn btn-primary btn-lg"
-        [disabled]="!form.valid"
-      >
-        Cofirmar compra
-      </button>
-    </form>
-  </div>
   <div class="ordem-compra" *ngIf="idPedidoCompra !== -1">
     <app-ordem-compra-sucesso
       [idPedidoFilho]="idPedidoCompra"

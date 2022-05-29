@@ -45,25 +45,33 @@ export class CarrinhoService {
   }
 
   public aumentarQuantidade(item: itemCarrinho) {
-    this.itens.find((itemStore: itemCarrinho) => {
-      if (itemStore.id === item.id) {
-        itemStore.quantidade += 1;
-      }
-    });
+    let itemCarrinhoEncontrado = this.itens.find(
+      (itemStore: itemCarrinho) => itemStore.id === item.id
+    );
+
+    if (itemCarrinhoEncontrado) {
+      item.quantidade += 1;
+    }
   }
 
   public diminuirQuantidade(item: itemCarrinho) {
-    this.itens.find((itemStore: itemCarrinho) => {
-      if (itemStore.id === item.id) {
-        if (itemStore.quantidade > 0) {
-          itemStore.quantidade -= 1;
-        }
-        if (itemStore.quantidade === 0) {
-          this.itens = this.itens.filter(
-            (itemS: itemCarrinho) => itemS.id !== item.id
-          );
-        }
-      }
-    });
+    let itemCarrinhoEncontrado = this.itens.find(
+      (itemStore: itemCarrinho) => itemStore.id === item.id
+    );
+
+    if (itemCarrinhoEncontrado) {
+      item.quantidade -= 1;
+    }
+
+    if (itemCarrinhoEncontrado?.quantidade === 0) {
+      //encontrar o index do elemento encontrado que precisa ser removido
+      let itemCarrinhoEncontradoIndex = this.itens.indexOf(
+        itemCarrinhoEncontrado
+      );
+      console.log('index of', itemCarrinhoEncontradoIndex);
+      // remover o item encontrado passando a posição dele e o segundo parametro é quantos recortes vou fazer no array
+
+      this.itens.splice(itemCarrinhoEncontradoIndex, 1);
+    }
   }
 }
