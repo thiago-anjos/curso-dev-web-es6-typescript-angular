@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     //consumindo a promessa
     this.ofertaService.getOfertas().subscribe((response) => {
       const destaqueFalse = response.filter((item) => item.destaque === false);
+      console.log(response);
       this.ofertas = response;
     });
   }

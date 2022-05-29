@@ -55,12 +55,14 @@ export class OrdemCompraComponent implements OnInit {
         this.form.value.endereco,
         this.form.value.numero,
         this.form.value.complemento,
-        this.form.value.formaPagamento
+        this.form.value.formaPagamento,
+        this.itenscarrinho
       );
       this.ordemCompraService
         .efetivarCompra(pedido)
         .subscribe((pedido: Pedido) => {
           this.idPedidoCompra = pedido.id;
+          if (pedido) this.carrinhoService.limparCarrinho();
           //console.log(this.idPedidoCompra);
         });
     }

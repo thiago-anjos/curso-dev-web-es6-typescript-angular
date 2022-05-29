@@ -68,10 +68,14 @@ export class CarrinhoService {
       let itemCarrinhoEncontradoIndex = this.itens.indexOf(
         itemCarrinhoEncontrado
       );
-      console.log('index of', itemCarrinhoEncontradoIndex);
+      //console.log('index of', itemCarrinhoEncontradoIndex);
       // remover o item encontrado passando a posição dele e o segundo parametro é quantos recortes vou fazer no array
 
       this.itens.splice(itemCarrinhoEncontradoIndex, 1);
     }
+  }
+
+  public limparCarrinho(): void {
+    this.itens = [];
   }
 }
