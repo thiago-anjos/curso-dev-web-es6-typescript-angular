@@ -48,21 +48,30 @@ export class BannerComponent implements OnInit {
 
   constructor() {}
 
-  rotataImages(): void {
-    let counter: number = 0;
-    setInterval(() => {
-      if (counter < this.images.length) {
-        this.images[counter].state = 'visible';
-        counter++;
-      } else {
-        this.images.map((item) => (item.state = 'hidden'));
-        counter = 0;
-        this.images[counter].state = 'visible';
-      }
-    }, 3000);
+  ngOnInit(): void {
+    this.logicaRotacao();
   }
 
-  ngOnInit(): void {
-    this.rotataImages();
+  public logicaRotacao(): void {
+    //auxilia na exibição da imagem seguinte
+    let idx: number = 0;
+
+    //ocultar imagem
+    for (let i: number = 0; i <= this.images.length - 1; i++) {
+      if (this.images[i].state === 'visible') {
+        this.images[i].state = 'hidden';
+        //próximo indice i+1
+        idx = i === 4 ? 0 : i + 1;
+        //assim que ele encontrar um estado === visible, o for pára a iteração por causa do break
+        break;
+      }
+    }
+
+    //exibir próxima imagem
+    this.images[idx].state = 'visible';
+
+    setTimeout(() => {
+      this.logicaRotacao();
+    }, 3000);
   }
 }
