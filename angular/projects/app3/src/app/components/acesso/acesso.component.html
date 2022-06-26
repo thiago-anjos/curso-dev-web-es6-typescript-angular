@@ -8,10 +8,21 @@
     </div>
 
     <div
+      *ngIf="cadastro; else containerLogin"
       class="col-sm-6 d-flex justify-content-start"
-      [@animacao-painel]="estadoPainel"
     >
-      <app-login></app-login>
+      <div [@animacao-painel]="estadoPainel">
+        <app-cadastro (exibirPainel)="exibirPainel($event)"></app-cadastro>
+      </div>
     </div>
+
+    <ng-template #containerLogin>
+      <div
+        class="col-sm-6 d-flex justify-content-start"
+        [@animacao-painel]="estadoPainel"
+      >
+        <app-login (exibirPainel)="exibirPainel($event)"></app-login>
+      </div>
+    </ng-template>
   </div>
 </div>
