@@ -4,6 +4,7 @@ import {
   state,
   animate,
   transition,
+  keyframes,
 } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 
@@ -37,7 +38,16 @@ import { Component, OnInit } from '@angular/core';
           opacity: 0,
           transform: 'translate(50px,0)',
         }),
-        animate('500ms 0s ease-in-out'),
+        animate(
+          '1500ms 0s ease-in-out',
+          keyframes([
+            style({ offset: 0.15, opacity: 1, transform: 'translateX(0)' }),
+            style({ offset: 0.86, opacity: 1, transform: 'translateX(0)' }),
+            style({ offset: 0.87, opacity: 1, transform: 'translateY(-10px)' }),
+            style({ offset: 0.9, opacity: 1, transform: 'translateY(10px)' }),
+            style({ offset: 1, opacity: 1, transform: 'translateX(0)' }),
+          ])
+        ),
       ]),
     ]),
   ],
