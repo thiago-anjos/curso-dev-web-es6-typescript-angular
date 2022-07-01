@@ -8,6 +8,8 @@ import { AcessoComponent } from './components/acesso/acesso.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { LoginComponent } from './components/login/login.component';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Auth } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,13 @@ import { CadastroComponent } from './components/cadastro/cadastro.component';
     LoginComponent,
     CadastroComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+  ],
+  providers: [Auth],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
