@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
       messagingSenderId: '187690527586',
       appId: '1:187690527586:web:7ac1d5d29aac10db4ada3b',
       measurementId: 'G-M8HF6W75PS',
+      databaseURL: 'https://instagram-clone-study-default-rtdb.firebaseio.com/',
     };
 
     // Initialize Firebase

@@ -6,3 +6,10 @@ export class User {
     public password: string
   ) {}
 }
+
+// export interface User {
+//   email: string;
+//   complete_name: string;
+//   username: string;
+//   password?: string;
+// }
