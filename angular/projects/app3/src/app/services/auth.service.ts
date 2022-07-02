@@ -22,4 +22,15 @@ export class Auth {
         console.log(err);
       });
   }
+  public auth(email: string, password: string): void {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((resolve) => {
+        console.log(resolve);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 }
