@@ -2,11 +2,16 @@ import * as firebase from 'firebase';
 import { User } from '../models/user.model';
 
 export class Auth {
-  public registerUser(user: Partial<Pick<User, 'password' | 'email'>>): void {
-    if (!user.password || !user.email) return;
-    firebase
+  public registerUser(
+    user: Partial<Pick<User, 'password' | 'email'>>
+  ): Promise<any> {
+    if (!user.password && !user.email) Promise.reject('error');
+    return firebase
       .auth()
-      .createUserWithEmailAndPassword(user.email, user.password)
+      .createUserWithEmailAndPassword(
+        user.email as string,
+        user.password as string
+      )
       .then((resolve: any) => {
         //remover atributo de um objeto
         delete user.password;

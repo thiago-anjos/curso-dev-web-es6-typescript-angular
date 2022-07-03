@@ -10,6 +10,8 @@ import { LoginComponent } from './components/login/login.component';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Auth } from './services/auth.service';
+import { HomeComponent } from './components/home/home.component';
+import { PublicacoesComponent } from './components/home/publicacoes/publicacoes.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { Auth } from './services/auth.service';
     BannerComponent,
     LoginComponent,
     CadastroComponent,
+    HomeComponent,
+    PublicacoesComponent,
   ],
   imports: [
     BrowserModule,

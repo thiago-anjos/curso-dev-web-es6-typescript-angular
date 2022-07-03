@@ -37,6 +37,6 @@ export class CadastroComponent implements OnInit {
       this.form.value.password
     );
     //console.log(user);
-    this.auth.registerUser(user);
+    this.auth.registerUser(user).then(() => this.exibirPainelLogin());
   }
 }
