@@ -35,16 +35,29 @@
           formControlName="password"
         />
       </div>
-      <button type="submit" class="btn btn-primary btn-sm btn-block mt-2">
+      <button
+        type="submit"
+        class="btn btn-primary btn-sm btn-block mt-2"
+        [disabled]="!form.valid"
+      >
         Cadastre-se
       </button>
     </form>
-    <hr />
 
-    <p class="small text-center">
-      Ao cadastrar-se, você concorda com nossos <b>Termos</b> e
-      <b>Política de Privacidade</b>.
-    </p>
+    <div *ngIf="message.length === 0">
+      <hr />
+      <p class="small text-center">
+        Ao cadastrar-se, você concorda com nossos <b>Termos</b> e
+        <b>Política de Privacidade</b>.
+      </p>
+    </div>
+
+    <div *ngIf="message.length > 0">
+      <hr />
+      <p class="small text-danger text-center">
+        {{ message }}
+      </p>
+    </div>
   </div>
 </div>
 <br />

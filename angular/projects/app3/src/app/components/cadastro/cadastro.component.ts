@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user.model';
 import { Auth } from 'src/app/services/auth.service';
 
@@ -14,11 +14,16 @@ export class CadastroComponent implements OnInit {
     new EventEmitter<string>();
 
   public form: FormGroup = new FormGroup({
-    email: new FormControl(null),
-    complete_name: new FormControl(null),
-    username: new FormControl(null),
-    password: new FormControl(null),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    complete_name: new FormControl('', [Validators.required]),
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
   });
+
+  public message: string = '';
 
   constructor(private auth: Auth) {}
 
@@ -37,6 +42,10 @@ export class CadastroComponent implements OnInit {
       this.form.value.password
     );
     //console.log(user);
-    this.auth.registerUser(user).then(() => this.exibirPainelLogin());
+    this.auth.registerUser(user).then((res) => {
+      this.message = res;
+      if (res.includes('error')) return;
+      this.exibirPainelLogin();
+    });
   }
 }

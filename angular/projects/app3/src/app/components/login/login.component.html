@@ -2,7 +2,7 @@
   <div class="card-body">
     <div class="card-title"></div>
 
-    <form [formGroup]="form" (ngSubmit)="authenticate()">
+    <form [formGroup]="form" (ngSubmit)="authenticate()" name="formulario">
       <div class="form-group">
         <input
           type="email"
@@ -19,16 +19,21 @@
           formControlName="password"
         />
       </div>
-      <button type="submit" class="btn btn-primary btn-sm btn-block mt-2">
+      <button
+        type="submit"
+        class="btn btn-primary btn-sm btn-block mt-2"
+        [disabled]="!form.valid"
+      >
         Entrar
       </button>
     </form>
-    <hr />
 
-    <p class="small text-danger text-center">
-      O nome de usuário inserido não pertence a uma conta. Verifique seu nome de
-      usuário e tente novamente.
-    </p>
+    <div *ngIf="message.length > 0">
+      <hr />
+      <p class="small text-danger text-center">
+        {{ message }}
+      </p>
+    </div>
   </div>
 </div>
 <br />

@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Auth } from 'src/app/services/auth.service';
 
 @Component({
@@ -14,13 +14,22 @@ export class LoginComponent implements OnInit {
     new EventEmitter<string>();
 
   public form: FormGroup = new FormGroup({
-    email: new FormControl(null),
-    password: new FormControl(null),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
   });
+
+  public message: string = '';
 
   constructor(public auth: Auth) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.form.statusChanges.subscribe((val) => {
+      //console.log(this.form.valid);
+    });
+  }
 
   //event emitter
   public exibirPainelCadastro(): void {
@@ -28,6 +37,10 @@ export class LoginComponent implements OnInit {
   }
 
   public authenticate(): void {
-    this.auth.auth(this.form.value.email, this.form.value.password);
+    this.auth
+      .auth(this.form.value.email, this.form.value.password)
+      .then((res) => {
+        this.message = res;
+      });
   }
 }
