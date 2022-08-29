@@ -13,6 +13,9 @@ import { Auth } from './services/auth.service';
 import { HomeComponent } from './components/home/home.component';
 import { PublicacoesComponent } from './components/home/publicacoes/publicacoes.component';
 import { AuthGuard } from './auth-guard.service';
+import { IncluirPublicacaoComponent } from './components/home/incluir-publicacao/incluir-publicacao.component';
+import { Bd } from './services/bd.service';
+import { Progress } from './services/progress.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { AuthGuard } from './auth-guard.service';
     CadastroComponent,
     HomeComponent,
     PublicacoesComponent,
+    IncluirPublicacaoComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,7 @@ import { AuthGuard } from './auth-guard.service';
     BrowserAnimationsModule,
     ReactiveFormsModule,
   ],
-  providers: [Auth, AuthGuard],
+  providers: [Auth, AuthGuard, Bd, Progress],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -12,14 +12,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     const firebaseConfig = {
-      apiKey: 'AIzaSyDFgdfm8tHLqcjHA_h371AMXZZHvxwwLlk',
-      authDomain: 'instagram-clone-study.firebaseapp.com',
-      projectId: 'instagram-clone-study',
-      storageBucket: 'instagram-clone-study.appspot.com',
-      messagingSenderId: '187690527586',
-      appId: '1:187690527586:web:7ac1d5d29aac10db4ada3b',
-      measurementId: 'G-M8HF6W75PS',
-      databaseURL: 'https://instagram-clone-study-default-rtdb.firebaseio.com/',
+      apiKey: 'AIzaSyD8MsrCBIXHNQftG5Mc_LdqO7_LpokZNIs',
+      authDomain: 'instagram-clone-2-5c4c0.firebaseapp.com',
+      projectId: 'instagram-clone-2-5c4c0',
+      storageBucket: 'instagram-clone-2-5c4c0.appspot.com',
+      messagingSenderId: '186762693637',
+      appId: '1:186762693637:web:63cc5b094575d52139606c',
+      databaseURL:
+        'https://instagram-clone-2-5c4c0-default-rtdb.firebaseio.com/',
     };
 
     // Initialize Firebase

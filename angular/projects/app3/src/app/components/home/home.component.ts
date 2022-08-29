@@ -14,4 +14,8 @@ export class HomeComponent implements OnInit {
   public logout(): void {
     this.auth.logout();
   }
+
+  public atualizarTimelineEmitter(event: Event): void {
+    console.log('estou no pai', event);
+  }
 }
