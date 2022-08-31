@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Auth } from 'src/app/services/auth.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { Auth } from 'src/app/services/auth.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  @ViewChild('publicacoes') public publicacoes: any;
+
   constructor(private auth: Auth) {}
 
   ngOnInit(): void {}
@@ -16,6 +18,7 @@ export class HomeComponent implements OnInit {
   }
 
   public atualizarTimelineEmitter(event: Event): void {
-    console.log('estou no pai', event);
+    // instanciamos o filho usando o viewChild e ai podemos utilizar o metodo que está no filho, atraves do pai
+    this.publicacoes.atualizarTimeline();
   }
 }

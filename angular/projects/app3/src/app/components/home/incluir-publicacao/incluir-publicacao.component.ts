@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Bd } from 'src/app/services/bd.service';
 import * as firebase from 'firebase';
 import { Progress } from 'src/app/services/progress.service';
-import { interval, Observable, Subject, takeUntil } from 'rxjs';
+import { interval, Subject, takeUntil } from 'rxjs';
 import { UploadStatus } from './upload-status';
 import { uploadImageStatus } from 'src/app/services/enum-upload-image';
 

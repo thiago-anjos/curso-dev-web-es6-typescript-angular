@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { Bd } from 'src/app/services/bd.service';
 import { PublicacoesModel } from './publicacoes-model';
@@ -11,6 +11,8 @@ import { PublicacoesModel } from './publicacoes-model';
 export class PublicacoesComponent implements OnInit {
   public email: string = '';
   public publicacoes: Array<PublicacoesModel> = [];
+
+  @Input() atualizarTimelineEmitter: any;
 
   constructor(private bd: Bd) {}
 
@@ -26,7 +28,6 @@ export class PublicacoesComponent implements OnInit {
     this.bd
       .consultaPublicacoes(this.email)
       .then((res: Array<PublicacoesModel>) => {
-        console.log(res);
         this.publicacoes = res;
       });
   }
